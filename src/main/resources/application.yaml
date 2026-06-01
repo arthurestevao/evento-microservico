@@ -10,13 +10,13 @@ spring:
         webflux:
           routes:
             - id: ms-evento
-              uri: http://localhost:8082
+              uri: lb://evento
               predicates:
                 - Path=/api/v1/eventos/**
             - id: ms-inscricao
-              uri: http://localhost:8081
+              uri: lb://inscricao
               predicates:
-                - Path=/api/v1/incricoes/**
+                - Path=/api/v1/inscricoes/**
 eureka:
   client:
     service-url:
