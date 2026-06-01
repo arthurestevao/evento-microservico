@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-    public static final String FILA_INSCRICAO = "inscricao.fila";
+    public static final String FILA_INSCRICAO = "email.inscricao.queue";
 
     @Bean
     public Queue filaInscricao() {
