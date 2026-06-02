@@ -23,6 +23,11 @@ public class InscricaoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(inscricaoService.inscrever(request));
     }
 
+    @PatchMapping("/{id}")
+    public ResponseEntity<InscricaoResponse> atualizar(@PathVariable Long id, @RequestBody @Valid InscricaoRequest request) {
+        return ResponseEntity.ok(inscricaoService.atualizar(id, request));
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<InscricaoResponse> buscarPorId(@PathVariable Long id) {
         return ResponseEntity.ok(inscricaoService.buscarPorId(id));

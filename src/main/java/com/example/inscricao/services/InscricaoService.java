@@ -44,6 +44,22 @@ public class InscricaoService {
         return inscricaoMapper.toDTO(inscricao, evento.nome());
     }
 
+    public InscricaoResponse atualizar(Long id, InscricaoRequest request) {
+
+        Inscricao inscricao = inscricaoRepository.findById(id)
+                .orElseThrow(() -> new RecursoNaoEncontradoException(INSCRICAO_NAO_ENCONTRADA));
+
+        EventoResponse evento = eventoClient.buscarPorId(request.eventoId());
+
+        inscricao.setEventoId(request.eventoId());
+        inscricao.setNomeParticipante(request.nomeParticipante());
+        inscricao.setEmail(request.email());
+
+        inscricao = inscricaoRepository.save(inscricao);
+
+        return inscricaoMapper.toDTO(inscricao, evento.nome());
+    }
+
     public InscricaoResponse buscarPorId(Long id) {
         Inscricao inscricao = inscricaoRepository.findById(id)
                 .orElseThrow(() -> new RecursoNaoEncontradoException(INSCRICAO_NAO_ENCONTRADA));
