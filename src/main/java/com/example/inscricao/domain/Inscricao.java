@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"eventoId", "email"}))
 public class Inscricao {
 
     @Id
@@ -25,7 +26,7 @@ public class Inscricao {
     @Column(nullable = false)
     private String nomeParticipante;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String email;
 
     @Column(nullable = false)

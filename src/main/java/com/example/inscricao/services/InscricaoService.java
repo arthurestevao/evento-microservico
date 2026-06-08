@@ -27,7 +27,6 @@ public class InscricaoService {
     private final EventoClient eventoClient;
     private final RabbitTemplate rabbitTemplate;
 
-
     public InscricaoResponse inscrever(InscricaoRequest request) {
         EventoResponse evento = eventoClient.buscarPorId(request.eventoId());
 
