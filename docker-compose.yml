@@ -1,11 +1,11 @@
 services:
   db:
     image: postgres:17-alpine
-    container_name: db_evento
+    container_name: evento
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: produtos
+      POSTGRES_PASSWORD: setme198
+      POSTGRES_DB: db_evento
     ports:
       - 5433:5432
     shm_size: 128mb
